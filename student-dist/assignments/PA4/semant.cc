@@ -538,8 +538,8 @@ static_dispatch_class::CheckExprType()
             Symbol formal_type = method->GetFormals()->nth(i)->GetType();
             if (classtable->IsParent(formal_type, actual_type) == false) {
                 classtable->semant_error(curr_class)
-                    << "Error! Actual type " << actual_type
-                    << " doesn't suit formal type " << formal_type << std::endl;
+                    << " " << actual_type
+                    << "Error, Not a valid type in dispacth.\n " << formal_type << std::endl;
                 error = true;
             }
         }
@@ -596,8 +596,8 @@ dispatch_class::CheckExprType()
             Symbol formal_type = method->GetFormals()->nth(i)->GetType();
             if (classtable->IsParent(formal_type, actual_type) == false) {
                 classtable->semant_error(curr_class)
-                    << "Error! Actual type " << actual_type
-                    << " doesn't suit formal type " << formal_type << std::endl;
+                    << " " << actual_type
+                    << " Error, Not a valid type in dispacth.\n " << formal_type << std::endl;
                 error = true;
             }
         }
