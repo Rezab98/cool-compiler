@@ -673,7 +673,7 @@ typcase_class::CheckExprType()
     }
 
     type = branch_types[0];
-    for (int i = 1; i < branch_types.size(); ++i) {
+    for (int i = 1; i < (int)branch_types.size(); ++i) {
         type = classtable->FindLCA(type, branch_types[i]);
     }
     return type;
@@ -1082,7 +1082,7 @@ void program_class::semant()
             curr_feature->CheckFeatureType();
         }
 
-        for (int j = 0; j < path.size(); ++j) {
+        for (int j = 0; j < (int)path.size(); ++j) {
             attribtable.exitscope();
         }
 
