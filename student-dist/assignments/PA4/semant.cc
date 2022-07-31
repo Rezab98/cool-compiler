@@ -665,22 +665,11 @@ typcase_class::CheckExprType()
 
     Case branch;
     std::vector<Symbol> branch_types;
-    std::vector<Symbol> branch_type_decls;
 
     for (int i = cases->first(); cases->more(i); i = cases->next(i)) {
         branch = cases->nth(i);
         Symbol branch_type = branch->CheckBranchType();
         branch_types.push_back(branch_type);
-        branch_type_decls.push_back(((branch_class*)branch)->GetTypeDecl());
-    }
-
-    for (int i = 0; i < branch_types.size() - 1; ++i) {
-        for (int j = i + 1; j < branch_types.size(); ++j) {
-            if (branch_type_decls[i] == branch_type_decls[j]) {
-                classtable->semant_error(curr_class)
-                    << "Error! Two branches have same type." << std::endl;
-            }
-        }
     }
 
     type = branch_types[0];
